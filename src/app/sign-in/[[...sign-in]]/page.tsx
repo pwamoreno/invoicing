@@ -6,7 +6,7 @@ import * as SignIn from "@clerk/elements/sign-in";
 
 export default function SignInPage() {
   return (
-    <div className="grid w-full flex-grow items-center bg-white px-4 sm:justify-center">
+    <div className="grid w-full flex-grow items-center  px-4 sm:justify-center">
       <SignIn.Root>
         <SignIn.Step
           name="start"
@@ -18,7 +18,7 @@ export default function SignInPage() {
               width="24"
               height="24"
               fill="none"
-              stroke="black"
+              stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
@@ -38,12 +38,12 @@ export default function SignInPage() {
               type="email"
               required
               placeholder="Email"
-              className="w-full border-b border-neutral-200 bg-white pb-2 text-sm/6 text-neutral-950 outline-none placeholder:text-neutral-400 hover:border-neutral-300 focus:border-neutral-600 data-[invalid]:border-red-600 data-[invalid]:text-red-600"
+              className="w-full border-b border-neutral-200 pb-2 text-sm/6 text-neutral-950 outline-none placeholder:text-neutral-400 hover:border-neutral-300 focus:border-neutral-600 data-[invalid]:border-red-600 data-[invalid]:text-red-600"
             />
             <Clerk.FieldError className="mt-2 block text-xs text-red-600" />
           </Clerk.Field>
           <SignIn.Action submit asChild>
-            <Button className="w-full font-bold bg-black">Sign In</Button>
+            <Button className="w-full font-bold bg-white text-black">Sign In</Button>
           </SignIn.Action>
           <div>
             <p className="mb-4 text-center text-sm/5 text-neutral-500">

@@ -1,4 +1,5 @@
 import { CirclePlus } from "lucide-react";
+import { auth } from "@clerk/nextjs/server";
 import {
   Table,
   TableBody,
@@ -16,9 +17,14 @@ import { db } from "@/db";
 import { Invoices } from "@/db/schema";
 import { cn } from "@/lib/utils";
 import Container from "@/components/Container";
+import { eq } from "drizzle-orm";
 
 const Dashboard = async () => {
-  const results = await db.select().from(Invoices);
+  const { userId } = await auth();
+
+  if(!userId) return;
+
+  const results = await db.select().from(Invoices).where(eq(Invoices.userId, userId));
   // console.log("results", results);
 
   return (
